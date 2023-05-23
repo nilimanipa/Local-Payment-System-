@@ -1,0 +1,66 @@
+import java.io.*;
+import java.util.Scanner;
+public SaveInfo{
+	
+}
+
+
+
+public class UserReg 
+{
+	public static void main(String args[])throws Exception 
+	{
+		Scanner sc = new Scanner(System.in);
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader bfr = new BufferedReader(isr);
+		
+		String s="", temp; 
+		File file = new File("UserRejInfo.txt");
+		  
+		file.createNewFile();
+		  
+		FileWriter writer = new FileWriter(file,true); 
+		
+		System.out.print("Enter Your Name: ");
+			temp = bfr.readLine();
+			s=s+temp+"\r\n";
+		System.out.print("Enter Your Number: ");
+			temp = bfr.readLine();
+			s=s+temp+"\r\n";
+		System.out.print("Enter Your Address: ");
+			temp = bfr.readLine();
+			s=s+temp+"\r\n";
+		System.out.print("Enter Your NID Number: ");
+			temp = bfr.readLine();
+			s=s+temp+"\r\n";
+		System.out.print("Enter Your Password: ");
+			temp = bfr.readLine();
+			s=s+temp+"\r\n";
+		System.out.println("Before confirm Pls cheak all the Informations are correct/Not.");
+		System.out.println("If any of your information is wrong Press N/n to register again.");
+		System.out.println("if all information is correct To confirm Your registration Press Y/y .");
+		
+		
+		char ch1 ;
+		ch1=sc.next().charAt(0);
+		if(ch1 =='Y' || ch1 =='y' ){
+			writer.write(s); 
+			writer.flush();
+			writer.close();
+			
+			FileReader reader = new FileReader(file);
+			BufferedReader bfl = new BufferedReader(reader);
+		
+			String a="";
+			while((temp=bfl.readLine())!=null)
+			{
+				a=a+temp+"\r\n";
+			}
+			
+			System.out.print(a+"\n\n");   
+			reader.close();
+		}
+		
+		
+	}
+}
